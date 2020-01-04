@@ -1,6 +1,6 @@
 FROM php:7.1.25-fpm-jessie
 
-LABEL maintainer='Benjamin Vison <benjamin@syneteksolutions.com>'
+LABEL maintainer='Yansell Rivas <yansellrivasdiaz@gmail.com>'
 
  # Install dependencies
  RUN apt-get update && apt-get install -y \
