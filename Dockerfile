@@ -1,4 +1,4 @@
-FROM php:7.1.25-fpm-jessie
+FROM php:7.2-fpm-stretch
 
 LABEL maintainer='Yansell Rivas <yansellrivasdiaz@gmail.com>'
 
