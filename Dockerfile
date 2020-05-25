@@ -6,6 +6,11 @@ LABEL maintainer='Yansell Rivas <yansellrivasdiaz@gmail.com>'
  RUN apt-get update && apt-get install -y \
          libfreetype6-dev \
          libjpeg62-turbo-dev \
+         gcc \
+         make \
+         autoconf \
+         libc-dev \
+         pkg-config \
          libmcrypt-dev \
          libpng-dev \
          zlib1g-dev \
@@ -15,7 +20,7 @@ LABEL maintainer='Yansell Rivas <yansellrivasdiaz@gmail.com>'
          wkhtmltopdf \
          xvfb \
     && pecl config-set php_ini "${PHP_INI_DIR}/php.ini" \
-    && pecl install mcrypt-1.0.2 \
+    && pecl install mcrypt-1.0.3 \
     && docker-php-ext-enable mcrypt \
     && docker-php-ext-install -j$(nproc) bcmath iconv mbstring pdo pdo_mysql mysqli opcache zip xml xmlrpc xmlwriter opcache exif \
     && docker-php-ext-configure intl \
