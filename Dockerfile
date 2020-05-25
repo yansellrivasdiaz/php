@@ -19,12 +19,14 @@ LABEL maintainer='Yansell Rivas <yansellrivasdiaz@gmail.com>'
          g++ \
          wkhtmltopdf \
          xvfb \
+         libonig-dev \
+         libzip-dev \
     && pecl config-set php_ini "${PHP_INI_DIR}/php.ini" \
     && pecl install mcrypt-1.0.3 \
     && docker-php-ext-enable mcrypt \
     && docker-php-ext-install -j$(nproc) bcmath iconv mbstring pdo pdo_mysql mysqli opcache zip xml xmlrpc xmlwriter opcache exif \
     && docker-php-ext-configure intl \
-    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd intl \
     && apt-get clean autoclean && apt-get autoremove --yes && rm -rf /var/lib/{apt,dpkg,cache,log}/
 
